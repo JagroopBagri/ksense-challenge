@@ -38,13 +38,28 @@ const appendUsers = (array, array2) => {
     userContainer.appendChild(nameContainer);
     // add event listener to each name
     nameContainer.addEventListener('click', (e) => {
-      displayPosts(e);
+      displayPosts(e, user);
     });
   });
   // event listener function
-  const displayPosts = (e) => {
+  const displayPosts = (e, user) => {
     // target the modal container section element
     let modalContainer = document.querySelector('.modal--container');
+    // delete all previous posts
+    while (modalContainer.firstChild) {
+      modalContainer.removeChild(modalContainer.lastChild);
+    }
+    // create header for modal with user name
+    let modalHeader = document.createElement('div');
+    modalHeader.classList.add('modal--header');
+    modalHeader.textContent = user.name;
+    // append
+    modalContainer.appendChild(modalHeader);
+    // create body for modal that will be filled with posts
+    let modalBody = document.createElement('div');
+    modalBody.classList.add('modal--body');
+    // append
+    modalContainer.appendChild(modalBody);
     // loop over array of posts
     array2.forEach((post) => {
       // check to see if post matches user id
@@ -71,7 +86,7 @@ const appendUsers = (array, array2) => {
         // append
         postContainer.appendChild(postBody);
         // append
-        modalContainer.appendChild(postContainer);
+        modalBody.appendChild(postContainer);
       }
     });
   };
