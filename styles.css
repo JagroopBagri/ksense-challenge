@@ -14,7 +14,7 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
 }
 .header {
   margin-top: 20px;
@@ -26,6 +26,7 @@ body,
 .title {
   width: 60%;
   text-align: center;
+  font-size: 1.6rem;
 }
 .github {
   display: flex;
@@ -39,6 +40,7 @@ body,
   flex-flow: wrap;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 20px;
 }
 .name--container {
   border-color: black;
@@ -59,4 +61,73 @@ body,
   background-color: #449642;
   color: rgb(238, 238, 238);
   font-size: 1.6rem;
+}
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  min-width: 950px;
+  min-height: 400px;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal--container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  width: 90%;
+  height: 90%;
+  gap: 25px;
+  padding: 10px;
+}
+.modal--header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 15%;
+  font-size: 3rem;
+}
+.modal--body {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+}
+.post--container {
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  height: 100px;
+  text-align: center;
+}
+.modal--button {
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+.modal--space {
+  width: 15%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+a {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  text-decoration: none;
+}
+img {
+  width: 25px;
 }

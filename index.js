@@ -43,6 +43,10 @@ const appendUsers = (array, array2) => {
   });
   // event listener function
   const displayPosts = (e, user) => {
+    //target the modal
+    let modal = document.querySelector('.modal');
+    // show modal
+    modal.style.display = 'flex';
     // target the modal container section element
     let modalContainer = document.querySelector('.modal--container');
     // delete all previous posts
@@ -52,9 +56,29 @@ const appendUsers = (array, array2) => {
     // create header for modal with user name
     let modalHeader = document.createElement('div');
     modalHeader.classList.add('modal--header');
-    modalHeader.textContent = user.name;
+    //create empty space for flexbox
+    let modalSpace = document.createElement('div');
+    modalSpace.classList.add('modal--space');
+    modalHeader.appendChild(modalSpace);
+    // create title
+    let modalTitle = document.createElement('div');
+    modalTitle.classList.add('modal--title');
+    modalTitle.textContent = `${user.name}'s Posts`;
+    modalHeader.appendChild(modalTitle);
+    //create empty space for flexbox
+    let modalSpace2 = document.createElement('div');
+    modalSpace2.classList.add('modal--space');
+    modalHeader.appendChild(modalSpace2);
     // append
     modalContainer.appendChild(modalHeader);
+    // create button that will exit modal
+    let modalButton = document.createElement('div');
+    modalButton.classList.add('modal--button');
+    modalButton.textContent = '✖';
+    modalSpace2.appendChild(modalButton);
+    modalButton.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
     // create body for modal that will be filled with posts
     let modalBody = document.createElement('div');
     modalBody.classList.add('modal--body');
